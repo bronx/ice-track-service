@@ -4,8 +4,7 @@ drop table if exists music_genre cascade;
 drop table if exists music_track cascade;
 drop table if exists music_track_metadata cascade;
 create table artist (
-    create_at timestamp(6) with time zone,
-    timestamp timestamp(6) with time zone not null,
+    created_at timestamp(6) with time zone not null,
     current_alias_id uuid unique,
     id uuid not null,
     primary key (id)
@@ -14,12 +13,14 @@ create table artist_alias (
     artist_id uuid not null,
     id uuid not null,
     alias varchar(255) not null,
+    created_at timestamp(6) with time zone not null,
     primary key (id),
     unique (artist_id, alias)
 );
 create table music_genre (
     id uuid not null,
     name varchar(255) not null,
+    created_at timestamp(6) with time zone not null,
     primary key (id)
 );
 create table music_track (
@@ -28,7 +29,9 @@ create table music_track (
     genre_id uuid not null,
     id uuid not null,
     title varchar(255) not null,
-    primary key (id)
+    created_at timestamp(6) with time zone not null,
+    primary key (id),
+    unique (artist_id, title)
 );
 create table music_track_metadata (
     id uuid not null,
@@ -36,7 +39,7 @@ create table music_track_metadata (
     metadata_key varchar(255) not null,
     metadata_value varchar(255) not null,
     primary key (id),
-    unique (metadata_key, metadata_value)
+    unique (music_track_id, metadata_key, metadata_value)
 );
 alter table if exists artist 
    add constraint FKr48canhwkydanus73f4ptswv4
