@@ -18,6 +18,6 @@ data class MusicTrack(
     @ManyToOne @JoinColumn(name = "genre_id", nullable = false) val genre: MusicGenre,
     @Column(nullable = false) val title: String,
     @Column(nullable = false) val length: Int, // in seconds
-    @OneToMany(mappedBy = "track") val metadata: Set<MusicTrackMetadata> = emptySet(),
+    @OneToMany(mappedBy = "track", fetch = FetchType.EAGER) val metadata: Set<MusicTrackMetadata> = emptySet(),
     @Column(nullable = false) val createdAt: Instant = Instant.now()
 )

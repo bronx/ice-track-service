@@ -1,10 +1,9 @@
 package com.ice.trackservice.domain.service.validator
 
-import com.ice.trackservice.api.controller.NewMusicTrackDTO
+import com.ice.trackservice.domain.dto.NewMusicTrackDTO
 import com.ice.trackservice.domain.model.Artist
 import com.ice.trackservice.domain.repository.MusicTrackRepository
 import org.springframework.stereotype.Component
-import java.lang.IllegalArgumentException
 
 @Component
 class MusicTrackValidator(private val musicTrackRepository: MusicTrackRepository) {

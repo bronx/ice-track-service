@@ -4,6 +4,7 @@ drop table if exists music_genre cascade;
 drop table if exists music_track cascade;
 drop table if exists music_track_metadata cascade;
 create table artist (
+    last_spotlight_day date unique,
     created_at timestamp(6) with time zone not null,
     current_alias_id uuid unique,
     id uuid not null,

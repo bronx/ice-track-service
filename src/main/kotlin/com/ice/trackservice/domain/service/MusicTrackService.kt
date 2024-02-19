@@ -1,6 +1,6 @@
 package com.ice.trackservice.domain.service
 
-import com.ice.trackservice.api.controller.NewMusicTrackDTO
+import com.ice.trackservice.domain.dto.NewMusicTrackDTO
 import com.ice.trackservice.domain.model.Artist
 import com.ice.trackservice.domain.model.MusicTrack
 import com.ice.trackservice.domain.model.MusicTrackMetadata
