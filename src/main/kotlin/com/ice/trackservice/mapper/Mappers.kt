@@ -11,7 +11,7 @@ fun MusicTrack.toDTO() = MusicTrackDTO(
     genre = GenreDTO(this.genre.id, this.genre.name),
     title = this.title,
     length = this.length,
-    metadata = this.metadata.map { it.key to it.value }.toMap()
+    metadata = this.metadata.associate { it.key to it.value }
 )
 
 fun Set<MusicTrack>.toDTO() = this.map { it.toDTO() }
