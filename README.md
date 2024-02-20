@@ -7,10 +7,12 @@ Application built with:
 - Flyway for migrations;
 - Swagger for API documentation.
 
+#### Time spent: ~12h.
+
 
 # Test, Build & Run
 
-I initially started building CRUD endpoints for that, but ultimately
+I initially started building CRUD endpoints for managing the artists, but ultimately
 decided to focus on the given requirements. 
 So instead I use DB migration to seed the database. Please use the following artists:
 
@@ -66,24 +68,29 @@ Password: [leave it empty]
 ```
 
 Flyway runs the db migrations during app's startup.
-The migration files can be found in `src/main/resources/db/migration/`
+
+The migration files can be found in `src/main/resources/db/migration/` 
+(or in `src/test/resources/db/test/migration/` for integration tests)
+
+#### Important: In real life, I would rather use TestContainers for integration tests.<br> Moreover, there is a separate config file for production profile (application-prod.properties). Production DB config should go there (except credentials, that should be passed as environment variables)!
 
 
 # Requirements
 
-### Add a New Track
+### Add a New Track - ✅
 - As a user, you should be able to add a new track to an artist's catalogue,
 capturing attributes such as track title, genre, length, etc.
  
-### Edit Artist Name
+### Edit Artist Name - ✅
 - As a user, you should be able to edit an artist's name to accommodate instances
 where artists have multiple aliases.
  
-### Fetch Artist Tracks
+### Fetch Artist Tracks - ✅
 - As a user, you should be able to fetch all tracks associated with a specific artist.
 
-### Artist of the Day
+### Artist of the Day - ✅
 - As a user, you should be able to see a different "Artist of the Day" in a cyclical
 manner on the homepage each day, ensuring a fair rotation through the entire catalogue of artists.
 This means if there are n artists, after n days, the cycle restarts with the first artist, ensuring an equal
 chance for each artist to be the "Artist of the Day".
+#### ***Artist of the day was fully implemented and manually tested, but there are 5 not-yet-implemented integration test cases in `ArtistIT`  
