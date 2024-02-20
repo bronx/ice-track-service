@@ -10,7 +10,22 @@ Application built with:
 
 # Test, Build & Run
 
-TBD
+I initially started building CRUD endpoints for that, but ultimately
+decided to focus on the given requirements. 
+So instead I use DB migration to seed the database. Please use the following artists:
+
+- `abac6bde-2934-4c98-b8b5-68c545b68aea` - Ye (Kanye West);
+- `abac6bde-2934-4c98-b8b5-68c545b68aeb` - Michael Jackson.
+
+Moreover, I've seeded the DB with some music genres:
+
+- `bbac6bde-2934-4c98-b8b5-68c545b68aea` - Country;
+- `bbac6bde-2934-4c98-b8b5-68c545b68aeb` - Funk;
+- `bbac6bde-2934-4c98-b8b5-68c545b68aec` - Samba;
+- `bbac6bde-2934-4c98-b8b5-68c545b68aed` - Rock;
+- `bbac6bde-2934-4c98-b8b5-68c545b68aee` - Classic;
+- `bbac6bde-2934-4c98-b8b5-68c545b68aef` - Hip Hop;
+- `bbac6bde-2934-4c98-b8b5-68c545b68ae1` - Pop.
 
 ### Step #1 - Build fat jar
 Built with gradle. In the root folder, run the following command:

@@ -28,6 +28,8 @@ dependencies {
 	implementation("org.flywaydb:flyway-core")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("io.rest-assured:rest-assured:5.4.0")
+	testImplementation("io.rest-assured:kotlin-extensions:5.4.0")
 }
 
 tasks.withType<KotlinCompile> {

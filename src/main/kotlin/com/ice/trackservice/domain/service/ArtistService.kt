@@ -9,6 +9,7 @@ import com.ice.trackservice.domain.repository.ArtistRepository
 import jakarta.transaction.Transactional
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import java.time.Clock
 import java.time.LocalDate.now
 import java.util.*
 
@@ -16,13 +17,14 @@ import java.util.*
 class ArtistService(
     private val artistRepository: ArtistRepository,
     private val artistAliasRepository: ArtistAliasRepository,
-    private val musicTrackService: MusicTrackService
+    private val musicTrackService: MusicTrackService,
+    private val clock: Clock
 ) {
     @Transactional
     fun getArtists(ofTheDay: Boolean): Iterable<Artist> {
         if (!ofTheDay) return artistRepository.findAll()
 
-        val today = now()
+        val today = now(clock)
         return (artistRepository.findByLastSpotlightDay(today) // already selected for today!
             ?: artistRepository.findFirstByLastSpotlightDayIsNull() // never selected before!
             ?: this.findOldestInSpotlight()) // gets the one that was farthest back in past!
